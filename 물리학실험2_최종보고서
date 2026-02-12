@@ -1,0 +1,363 @@
+\documentclass[twocolumn, 10pt]{article}
+\usepackage{graphicx} 
+\usepackage{kotex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{caption}
+\pgfplotsset{compat=1.18}
+
+\title{전류가 만드는 자기장 최종보고서}
+\author{2023-19002 경영학과 강기택}
+\date{2025년 11월 30일}
+
+\begin{document}
+
+
+\maketitle
+
+\section*{1. 서론}
+\subsection*{1.1 실험 목적}
+\,전자가 움직이면 주위에 자기장이 생긴다. 전류가 흐르는 도선 상 자기장이 형성되며, 비오-사바르 법칙을 따른다. 전류가 흐르는 도선으로 만든 각종 실험 기구(솔레노이드, 헬름홀츠 코일, 단일 원형 코일)을 통해 생성된 자기장을 측정하고, 이를 이론값과 비교하여 이와 부합하는지 확인해본다. 
+\subsection*{1.2 이론적 배경}
+\subsubsection*{1.2.1 비오-사바르 법칙}
+ 전류가 흐르는 도선에서 만큼 떨어진 곳에서 측정되는 자기장은 다음 수식을 통해 알 수 있다.
+$$d\vec{B} = \frac{\mu_0 I}{4\pi}\frac{d \vec{s}\times \vec{r}}{r^3}$$
+ 이때, $d\vec{B}$는 한 지점에서 자기장의 미소량이며, $d\vec{s}$는 전류가 흐르는 방향의 미소량, $\vec{r}$은 해당 지점과의 변위다. $\mu_0$는 진공 유전율이다. 이 법칙을 통하여 선적분을 하면, 총 자기장을 구할 수 있다.
+\subsubsection*{1.2.2 솔레노이드} 솔레노이드 내부에서의 자기장의 세기는 다음과 같다.
+ $$B = \mu_0 nI \,$$
+\,이때 $I$는 전류의 세기, $n$은 단위 길이다 감은 횟수다. 
+  이 식은 도선이 무한하며, 균일하게 감기며, 외부 자기장이 없으며, 내부 자기장이 균일하다는 가정 하에서만 성립한다. 이를 보완하기 위해,
+  $$B = \frac{cos\theta_1 + cos\theta_2}{2}\mu_0 nI$$
+를 사용할 수 있다. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{그림3.png}
+    \label{fig:placeholder}
+\end{figure}
+\,이때, $cos\theta_1$과 $\cos \theta_2$는 각각 자기장을 구하고 싶은 점과 솔레노이드 양쪽 가장자리 도선을 이은 선이 중심 축이 이루는 각도를 의미한다. 
+\subsubsection*{1.2.3 헬름홀츠 코일}
+헬름홀츠 코일이 만드는 자기장의 세기는 다음과 같다. 
+{\small $$B(x) = \frac{\mu_0 N I}{2R} \left( \frac{1}{\left( 1 + (x/R + 1/2)^2 \right)^{3/2}} + \frac{1}{\left( 1 + (x/R - 1/2)^2 \right)^{3/2}} \right)$$}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{그림1.png}
+    \label{fig:placeholder}
+\end{figure}
+\subsubsection*{1.2.4 단일 원형 코일}
+ 단일 원형 코일이 만드는 자기장의 세기는 다음과 같다.
+ $$B(x) = \frac{\mu_0 NI}{2R}\frac{1}{(1+ (x /R)^2)^{3/2}}$$
+\,이때, $R$은 단일 원형 코일의 반지름이며, $N$은 단일 원형 코일이 감긴 횟수며, $x$는 단일 원형코일로부터 떨어진 거리다. 이 식은 길이에 비해 반지름이 매우 큰 경우에 사용할 수 있다. 
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.6\linewidth]{그림2.png}
+     \label{fig:placeholder}
+ \end{figure}
+\section*{2. 본론}
+\subsection*{2.1 실험 방법}
+\subsubsection*{2.1.1 솔레노이드 자기장의 세기 측정}
+\, 우선 프로그램을 실행한 후, 영점을 맞춰주고 측정 자기장의 세기 단위를 $mT$로 설정한다. 솔레노이드 기준선을 30cm에 맞추며, 센서의 기준선을 3cm에 맞춘다. 센서의 기준선을 1cm 씩 이동시키며 자기장의 세기를 측정한다. 전류의 세기는 0.5A로 설정한다.
+\subsubsection*{2.1.2 헬름홀츠 코일 자기장의 세기 측정}
+\, 두 개의 헬름홀츠 코일의 기준선을 각각 30cm, 35.7cm에 맞춘다. 센서의 기준선은 7cm에 맞춘다. 센서를 1cm씩 움직이면서 측정된 자기장의 세기를 기록한다. 전류의 세기는 1.0A로 설정한다. 헬름홀츠 코일 실험의 경우 전류의 방향을 바꾸어 한 번 더 측정한다.
+\subsubsection*{2.1.3 단일 원형 코일 자기장의 세기 측정}
+ 단일 원형 코일의 기준선을 30cm에 맞춘다. 센서의 기준선을 7cm에 맞춘다. 센서를 1cm씩 움직이면서 측정된 자기자의 세기를 기록한다. 전류의 세기는 1.0A로 설정한다. 
+\subsection*{2.2 실험 데이터}
+\subsubsection*{2.2.1 솔레노이드 측정값}
+\begin{table}[H]
+\centering
+\caption{솔레노이드 중심축 상의 자기장}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{중심축의 위치 (cm)} & \textbf{자기장의 세기 (mT)} \\ \hline
+3              & 0.00            \\ \hline
+4              & 0.67            \\ \hline
+5              & 1.60            \\ \hline
+6              & 2.11            \\ \hline
+7              & 2.35            \\ \hline
+8              & 2.46            \\ \hline
+9              & 2.5             \\ \hline
+10             & 2.51            \\ \hline
+11             & 2.5             \\ \hline
+12             & 2.47            \\ \hline
+13             & 2.37            \\ \hline
+14             & 2.13            \\ \hline
+15             & 1.53            \\ \hline
+
+\end{tabular}
+\end{table}
+\subsubsection*{2.2.2 헬름홀츠 코일 측정값}
+\begin{table}[H]
+\centering
+\caption{헬름홀츠 코일 중심축 상의 자기장 (데이터 1)}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{중심축의 위치 (cm)} & \textbf{자기장의 세기 (mT)} \\ \hline
+7              & -1.79           \\ \hline
+8              & -2.27           \\ \hline
+9              & -2.46           \\ \hline
+10             & -3.16           \\ \hline
+11             & -3.17           \\ \hline
+12             & -3.16           \\ \hline
+13             & -3.14           \\ \hline
+14             & -2.93           \\ \hline
+15             & -2.53           \\ \hline
+16             & -2.93           \\ \hline
+17             & -2.63           \\ \hline
+18             & -2.26           \\ \hline
+19             & -1.84           \\ \hline
+20             & -1.44           \\ \hline
+21             & -1.13           \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{헬름홀츠 코일 중심축 상의 자기장 (데이터 2)}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{중심축의 위치 (cm)} & \textbf{자기장의 세기 (mT)} \\ \hline
+7              & 1.61            \\ \hline
+8              & 2.29            \\ \hline
+9              & 2.73            \\ \hline
+10             & 3.11            \\ \hline
+11             & 3.19            \\ \hline
+12             & 3.18            \\ \hline
+13             & 3.18            \\ \hline
+14             & 3.13            \\ \hline
+15             & 3.01            \\ \hline
+16             & 2.76            \\ \hline
+17             & 2.31            \\ \hline
+18             & 1.92            \\ \hline
+19             & 1.61            \\ \hline
+20             & 1.47            \\ \hline
+21             & 1.18            \\ \hline
+\end{tabular}
+\end{table}
+
+\vspace{1em} % 위쪽 표와의 간격을 조금 줍니다 (필요 없으면 삭제 가능)
+
+\noindent \textbf{2.2.3 단일 원형 코일 측정값} % subsection 대신 굵은 글씨로 직접 입력
+
+\vspace{-0.5em}
+\begin{center}
+    \captionof{table}{단일 원형 코일 중심축 상의 자기장}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{중심축의 위치 (cm)} & \textbf{자기장의 세기 (mT)} \\ \hline
+        7              & -1.47           \\ \hline
+        8              & -1.76           \\ \hline
+        9              & -2.06           \\ \hline
+        10             & -2.13           \\ \hline
+        11             & -2.09           \\ \hline
+        12             & -1.89           \\ \hline
+        13             & -1.66           \\ \hline
+        14             & -1.31           \\ \hline
+        15             & -1.03           \\ \hline
+    \end{tabular}
+\end{center}
+\vspace{-0.5em}
+\subsubsection*{2.2.4 측정값 종합 그래프}
+\begin{tikzpicture}
+    \begin{axis}[
+        title={자기장 실험 데이터 종합 그래프},
+        xlabel={중심축의 위치 (cm)},
+        ylabel={자기장의 세기 (mT)},
+        xmin=0, xmax=22,
+        ymin=-4, ymax=4,
+        xtick={0,2,4,...,22},
+        ytick={-4,-3,...,4},
+        legend pos=outer north east,
+        ymajorgrids=true,
+        xmajorgrids=true,
+        grid style=dashed,
+        % 여기의 너비와 높이를 절반으로 수정했습니다.
+        width=6cm,  % 기존 12cm -> 6cm
+        height=4cm  % 기존 8cm -> 4cm
+    ]
+
+    % 1. 솔레노이드 중심축 상의 자기장 (빨간색)
+    \addplot[
+        color=red,
+        mark=square*,
+        thick
+    ]
+    coordinates {
+        (3,0.00)(4,0.67)(5,1.60)(6,2.11)(7,2.35)(8,2.46)(9,2.5)(10,2.51)(11,2.5)(12,2.47)(13,2.37)(14,2.13)(15,1.53)
+    };
+    \addlegendentry{솔레노이드}
+
+    % 2. 단일 원형 코일 중심축 상의 자기장 (파란색)
+    \addplot[
+        color=blue,
+        mark=triangle*,
+        thick
+    ]
+    coordinates {
+        (7,-1.47)(8,-1.76)(9,-2.06)(10,-2.13)(11,-2.09)(12,-1.89)(13,-1.66)(14,-1.31)(15,-1.03)
+    };
+    \addlegendentry{단일 원형 코일}
+
+    % 3. 헬름홀츠 코일 데이터 1 (초록색)
+    \addplot[
+        color=green!60!black,
+        mark=*,
+        thick
+    ]
+    coordinates {
+        (7,-1.79)(8,-2.27)(9,-2.46)(10,-3.16)(11,-3.17)(12,-3.16)(13,-3.14)(14,-2.93)(15,-2.53)(16,-2.93)(17,-2.63)(18,-2.26)(19,-1.84)(20,-1.44)(21,-1.13)
+    };
+    \addlegendentry{헬름홀츠 코일 (음수값)}
+
+    % 4. 헬름홀츠 코일 데이터 2 (주황색)
+    \addplot[
+        color=orange,
+        mark=diamond*,
+        thick
+    ]
+    coordinates {
+        (7,1.61)(8,2.29)(9,2.73)(10,3.11)(11,3.19)(12,3.18)(13,3.18)(14,3.13)(15,3.01)(16,2.76)(17,2.31)(18,1.92)(19,1.61)(20,1.47)(21,1.18)
+    };
+    \addlegendentry{헬름홀츠 코일 (양수값)}
+
+    \end{axis}
+\end{tikzpicture}
+\subsection*{2.3 이론값과 오차율}
+\subsubsection*{2.3.1. 솔레노이드}
+\begin{center}
+    \captionof{table}{솔레노이드 중심축 상의 자기장 이론값 및 오차율}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{위치 (cm)} & \textbf{이론값 (mT)} & \textbf{오차율 (\%)} \\ \hline
+        3  & 0.47 & -100\%  \\ \hline
+        4  & 1.05 & -36.3\% \\ \hline
+        5  & 1.81 & -11.7\% \\ \hline
+        6  & 2.24 & -5.6\%  \\ \hline
+        7  & 2.40 & -2.2\%  \\ \hline
+        8  & 2.47 & -0.9\%  \\ \hline
+        9  & 2.50 & -0.1\%  \\ \hline
+        10 & 2.51 & 0\%     \\ \hline
+        11 & 2.50 & -0.1\%  \\ \hline
+        12 & 2.47 & -0.1\%  \\ \hline
+        13 & 2.40 & -1.4\%  \\ \hline
+        14 & 2.24 & -4.7\%  \\ \hline
+        15 & 1.81 & -15.5\% \\ \hline
+    \end{tabular}
+\end{center}
+\subsubsection*{2.3.2 헬름홀츠 코일}
+\begin{center}
+    \captionof{table}{헬름홀츠 코일 중심축 상의 자기장 이론값 및 오차율}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{위치 (cm)} & \textbf{이론값 (mT)} & \textbf{오차율 (\%)} \\ \hline
+        7  & 1.92 & -16.1\% \\ \hline
+        8  & 2.34 & -2.0\%  \\ \hline
+        9  & 2.71 & 0.8\%   \\ \hline
+        10 & 2.96 & 5.1\%   \\ \hline
+        11 & 3.07 & 3.8\%   \\ \hline
+        12 & 3.10 & 2.7\%   \\ \hline
+        13 & 3.10 & 2.7\%   \\ \hline
+        14 & 3.09 & 1.4\%   \\ \hline
+        15 & 3.02 & -0.3\%  \\ \hline
+        16 & 2.82 & -2.2\%  \\ \hline
+        17 & 2.49 & -7.4\%  \\ \hline
+        18 & 2.09 & -7.8\%  \\ \hline
+        19 & 1.67 & -3.8\%  \\ \hline
+        20 & 1.31 & -8.1\%  \\ \hline
+        21 & 1.02 & 15.6\%  \\ \hline
+    \end{tabular}
+\end{center}
+\subsubsection*{2.3.2 단일 원형 코일}
+\begin{center}
+    \captionof{table}{단일 원형 코일 중심축 상의 자기장 이론값 및 오차율}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{위치 (cm)} & \textbf{이론값 (mT)} & \textbf{오차율 (\%)} \\ \hline
+        7  & -1.43 & 3\%     \\ \hline
+        8  & -1.75 & 0.3\%   \\ \hline
+        9  & -2.03 & 1.2\%   \\ \hline
+        10 & -2.18 & -2.4\%  \\ \hline
+        11 & -2.14 & -2.2\%  \\ \hline
+        12 & -1.92 & -1.5\%  \\ \hline
+        13 & -1.61 & 3.3\%   \\ \hline
+        14 & -1.28 & 2.0\%   \\ \hline
+        15 & -1.00 & 3.1\%   \\ \hline
+    \end{tabular}
+\end{center}
+\subsubsection*{2.3.4 위치별 오차율 그래프}
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel={위치 (cm)},
+        ylabel={오차율 (\%)},
+        xmin=0, xmax=22,
+        % y축 범위는 데이터에 맞춰 자동으로 조정되도록 설정하거나, 
+        % -100% 데이터까지 모두 보려면 아래 주석을 해제하세요.
+        % ymin=-105, ymax=20,
+        legend pos=outer north east,
+        ymajorgrids=true,
+        xmajorgrids=true,
+        grid style=dashed,
+        % 요청하신 크기 (1/2배)
+        width=6cm,
+        height=4cm
+    ]
+
+    % 1. 솔레노이드 오차율 (빨간색, 네모 마커)
+    \addplot[
+        color=red,
+        mark=square*,
+        thick
+    ]
+    coordinates {
+        (3,-100)(4,-36.3)(5,-11.7)(6,-5.6)(7,-2.2)(8,-0.9)(9,-0.1)(10,0)(11,-0.1)(12,-0.1)(13,-1.4)(14,-4.7)(15,-15.5)
+    };
+    \addlegendentry{솔레노이드}
+
+    % 2. 단일 원형 코일 오차율 (파란색, 세모 마커)
+    \addplot[
+        color=blue,
+        mark=triangle*,
+        thick
+    ]
+    coordinates {
+        (7,3)(8,0.3)(9,1.2)(10,-2.4)(11,-2.2)(12,-1.5)(13,3.3)(14,2.0)(15,3.1)
+    };
+    \addlegendentry{단일 원형 코일}
+
+    % 3. 헬름홀츠 코일 오차율 (주황색, 다이아몬드 마커)
+    \addplot[
+        color=orange,
+        mark=diamond*,
+        thick
+    ]
+    coordinates {
+        (7,-16.1)(8,-2.0)(9,0.8)(10,5.1)(11,3.8)(12,2.7)(13,2.7)(14,1.4)(15,-0.3)(16,-2.2)(17,-7.4)(18,-7.8)(19,-3.8)(20,-8.1)(21,15.6)
+    };
+    \addlegendentry{헬름홀츠 코일}
+
+    \end{axis}
+\end{tikzpicture}
+\subsection*{2.4 오차분석}
+\, 솔레노이드의 경우, 중심축의 위치가 3cm일 경우 오차율이 100\%로 매우 높았으나, 오른쪽으로 갈수록 오차율의 절댓값이 낮아지면서, 10cm에서 최소를 기록하고, 그 이후로는 증가했다. \\ \\
+\, 헬름홀츠 코일의 경우, 중심축의 위치가 7cm일 경우 오차율이 제일 낮았으며, 이후 대체로 증가하는 양상을 보였다.  \\ \\
+\, 단일 원형 코일의 경우, 모든 지점에서의 오차율이 $-3.1\%$ 에서 $3.0\%$ 사이로 대체로 매우 작았다. 
+\subsection*{2.5 결과에 대한 논의}
+그래프에서 볼 수 있듯이, 실험으로 측정한 자기장 분포는 이론값의 경향성과 전반적으로 일치했다. 솔레노이드 중앙에서 자기장이 가장 강하고 끝으로 갈수록 약해지는 양상을 보여, 이론을 성공적으로 재현했다고 할 수 있다. 다만 값 자체에는 오차가 존재했는데, 특히 솔레노이드 양 끝에서 그 차이가 두드러졌다. 이는 이론이 이상적인 '점'에서의 자기장을 계산하는 반면, 실제 센서는 물리적인 크기를 가져 특정 면적의 자기장 평균값을 측정하기 때문으로 보인다. 자기장 변화가 급격한 끝부분에서 이 효과가 가장 크게 나타나 오차를 증폭시킨 것으로 생각된다. 이 외에도 실험 장비의 상황(전류, 코일 감은 수)이 명시된 값과 미세하게 다르거나, 주변의 지구 자기장이나 외부 금속이나 스마트폰 등이 완전히 상쇄되지 않은 점도 오차의 원인으로 작용했을 것이다. 중심축의 위치가 3cm인 경우 오차율이 -100\%로 매우 크게 나타났다. 이에 대한 원인은 이론값에서는 $cos\theta_1$는 1, $cos\theta_2$가 3cm인 경우 0이 아닌 값으로 존재하여 이론 값이 0이 아니었으나, 실험값에서는 자기장의 세기가 0으로 나타났다.(1.2.2 식 참조). 이런 이유로 오차율이 -100\%로 측정될 수 밖에 없었다. 
+\newpage
+실험값과 이론값이 솔레노이드의 경우 외에도 헬름홀츠 코일과 단일 원형 코일에서 오차율이 작게나마 존재하는 이유는 다음과 같이 추론할 수 있다. 첫째, 이론값을 도출할 때, 유전율을 진공 유전율로 자기장의 세기를 계산하였다. 그러나, 실제 실험 환경에서는 진공이 아니기 때문에 실제 실험 환경에서의 유전율을 통해 계산했어야 했다. 둘째, 헬름홀츠과 단일 원형 코일의 경우, 이론값을 구하는데 썼던 가정은 길이에 비해 반지름이 매우 큰 경우에만 성립하였다. 그러나 실제 실험에서는 단일 원형 코일의 반지름이 매우 크지는 않았다. 그리하여 오차가 생겼다. 셋째, 도선에 흐르는 전류와 전류계에서 설정한 전류의 차이가 있다. 이는 구리 도선의 비저항, 혹은 외부환경에 의한 전류세기의 약화 등에 기인한다. 이론값은 도선의 비저항이 없는 경우를 가정하여 계산을 한다. 넷째, 이론에서는 특정한 점에서의 자기장을 계산하는 반면, 센서는 특정 면적의 자기장 평균값을 이용한다. 이의 경우, 자기장의 변화율이 작은 구간에서 이론값과 실험값은 대체로 비슷하나, 작은 오차가 발생할 수 있다. 하지만 자기장의 변화율이 큰 구간에서는 센서가 평균 자기장을 감지함으로, 이로 인해 오차율이 비교적 크게 발생한다. 다섯째, 실험이 성공적으로 진행하려면 전류가 너무 높을 경우 열이 발생할 수 있으므로 연속 사용을 피하고, 필요한 경우 저항을 추가했어야 하나, 실제 실험에서는 충분한 시간 간격을 두지 않고 연속적으로 측정을 하였다. 이 또한 오차의 발생 원인을 야기한다. 
+\section*{3. 결론}
+이번 실험을 통해 솔레노이드 내부 자기장의 세기가 중앙에서 최대가 되고 양 끝으로 갈 수록 감소하는 이론적 경향을 확인할 수 있었다. 또한 헬름홀츠 코일과 단일 원형 코일의 자기장의 세기 중앙에서 최대가 되며 양 끝으로 갈 수록 작아지는 이론적 경향을 또한 확인할 수 있었다. 측정값과 이론값의 오차는 여러 요인에 의해 기인하나, 주로 자기장 센서가 가진 고유한 크기 때문에 발생한 것으로 보이며, 이로 인해 자기장 변화율이 큰 구간에서 측정의 한계가 드러났다. 실험을 통해 이론과 실제 측정 사이의 차이가 어떤 요인에서 비롯되는지 고찰할 수 있었다.
+\section*{4. 참조 문헌}
+\begin{thebibliography}{9}
+
+    \bibitem{halliday11}
+    Walker, J., \textit{Halliday \& Resnick's Principles of Physics} (11th ed.), 2020.
+
+    \bibitem{halliday10}
+    Walker, J., \textit{Principles of Physics} (10th ed.), 2014.
+
+    \bibitem{mathtravel}
+        Math Travel, ``솔레노이드 내부 자기장 측정 방법,'' \url{https://mathtravel.tistory.com/entry/솔레노이드-내부-자기장-측정-방법}
+
+\end{thebibliography}
+\end{document}
